@@ -1,11 +1,13 @@
 package controlador;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import modelo.Cliente;
 import modelo.Conector;
 import modelo.GestorBBDD;
+import vista.Visor;
 import vista.Formulario;
 
 public class GestorClientes extends  Conector {
@@ -17,7 +19,18 @@ public class GestorClientes extends  Conector {
 		Conector.cerrar();
 	}
 	public static void verClientes(Scanner scan) {
-		
+		Conector.conectar();
+		ArrayList<Cliente> clientes = GestorBBDD.getClientes();
+		Visor.mostrarClientes(clientes);
+		Conector.cerrar();
+	}
+	public static void eliminarCliente(Scanner scan) {
+		Conector.conectar();
+		ArrayList<Cliente> clientes = GestorBBDD.getClientes();
+		Visor.mostrarClientes(clientes);
+
+		GestorBBDD.eliminarCliente(cliente);
+		Conector.cerrar();
 	}
 	
 	

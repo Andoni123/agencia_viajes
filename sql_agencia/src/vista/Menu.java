@@ -81,6 +81,8 @@ public class Menu {
 		final int SALIR =0;
 		final int REGISTRAR = 1;
 		final int LISTAR_CLIENTES = 2;
+		final int ELIMINAR_CLIENTES = 3;
+		final int MODIFICAR_DATOS_CLIENTE = 4;
 		
 		do {
 			//MOSTRAR MENU
@@ -91,8 +93,10 @@ public class Menu {
 				GestorClientes.registrarCliente(scan);
 				break;
 			case LISTAR_CLIENTES:
-				
+				GestorClientes.verClientes(scan);
 				break;
+			case ELIMINAR_CLIENTES:
+				GestorClientes.eliminarCliente(scan);
 			case SALIR:
 				System.out.println("Salir...");
 				break;

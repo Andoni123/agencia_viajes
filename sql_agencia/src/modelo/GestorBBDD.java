@@ -9,27 +9,7 @@ import java.util.ArrayList;
 import modelo.Cliente;
 
 public class GestorBBDD extends Conector{
-
-	public static void registrarCliente(Cliente cliente) throws SQLException {
-		
-			String sql = "INSERT INTO clientes (dni,nombre,apellidos,direccion,localidad) VALUES (?,?,?,?,?) ";
-			PreparedStatement pst = con.prepareStatement(sql);
-
-			try {
-				pst.setString(1, Cliente.getDni());
-				pst.setString(2, Cliente.getNombre());
-				pst.setString(3, Cliente.getApellido());
-				pst.setString(4, Cliente.getDireccion());
-				pst.setString(3, Cliente.getLocalidad());
-
-				pst.execute();
-
-			} catch (SQLException e) {
-				System.out.println("se tea jodido  registrarCliente");
-				e.printStackTrace();
-				pst.execute();
-			}
-		}
+	
 	public static ArrayList <Cliente> getClientes(){
 		
 		 ArrayList <Cliente> clientes= new ArrayList<>();
@@ -58,6 +38,49 @@ public class GestorBBDD extends Conector{
 			return clientes;
 		
 	}
+
+	public static void registrarCliente(Cliente cliente) throws SQLException {
+		
+			String sql = "INSERT INTO clientes (dni,nombre,apellidos,direccion,localidad) VALUES (?,?,?,?,?) ";
+			PreparedStatement pst = con.prepareStatement(sql);
+
+			try {
+				pst.setString(1, Cliente.getDni());
+				pst.setString(2, Cliente.getNombre());
+				pst.setString(3, Cliente.getApellido());
+				pst.setString(4, Cliente.getDireccion());
+				pst.setString(3, Cliente.getLocalidad());
+
+				pst.execute();
+
+			} catch (SQLException e) {
+				System.out.println("se tea jodido  registrarCliente");
+				e.printStackTrace();
+				pst.execute();
+			}
+		}
+	public static void eliminarCliente(Cliente cliente)throws SQLException{
+		String sql = "DELETE FROM clientes (dni,nombre,apellidos,direccion,localidad) VALUES(?,?,?,?,?) ";
+		PreparedStatement pst = con.prepareStatement(sql);
+		
+		try {
+			pst.setString(1, Cliente.getDni());
+			pst.setString(2, Cliente.getNombre());
+			pst.setString(3, Cliente.getApellido());
+			pst.setString(4, Cliente.getDireccion());
+			pst.setString(3, Cliente.getLocalidad());
+
+			pst.execute();
+
+		} catch (SQLException e) {
+			System.out.println("se tea jodido  eliminarCliente");
+			e.printStackTrace();
+			pst.execute();
+		}
 	}
+
+	}
+
+	
 
 
