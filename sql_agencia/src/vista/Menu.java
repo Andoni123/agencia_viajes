@@ -13,6 +13,11 @@ public class Menu {
 	static int eleccion;
 
 	public static void main(String[] args) throws SQLException {
+		run();
+	}
+	private static void run() throws SQLException {
+		
+			
 		final int GESTIONCLIENTES = 1;
 		final int GESTIONRESERVA= 2;
 		final int GESTIONHOTEL = 3;
@@ -37,6 +42,7 @@ public class Menu {
 		}
 		}while (eleccion!=0);
 	}
+
 
 	private static void gestionHotel() {
 		final int SALIR =0;
@@ -96,7 +102,9 @@ public class Menu {
 				GestorClientes.verClientes(scan);
 				break;
 			case ELIMINAR_CLIENTES:
-				GestorClientes.eliminarCliente(scan);
+//				GestorClientes.eliminarCliente(scan);
+			case MODIFICAR_DATOS_CLIENTE:
+				GestorClientes.modificarCliente(scan);
 			case SALIR:
 				System.out.println("Salir...");
 				break;

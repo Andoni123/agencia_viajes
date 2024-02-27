@@ -59,28 +59,47 @@ public class GestorBBDD extends Conector{
 				pst.execute();
 			}
 		}
-	public static void eliminarCliente(Cliente cliente)throws SQLException{
-		String sql = "DELETE FROM clientes (dni,nombre,apellidos,direccion,localidad) VALUES(?,?,?,?,?) ";
+//	public static void eliminarCliente(Cliente cliente)throws SQLException{
+//		String sql = "DELETE FROM clientes (dni,nombre,apellidos,direccion,localidad) VALUES(?,?,?,?,?) ";
+//		PreparedStatement pst = con.prepareStatement(sql);
+//		
+//		try {
+//			pst.setString(1, Cliente.getDni());
+//			pst.setString(2, Cliente.getNombre());
+//			pst.setString(3, Cliente.getApellido());
+//			pst.setString(4, Cliente.getDireccion());
+//			pst.setString(3, Cliente.getLocalidad());
+//
+//			pst.execute();
+//
+//		} catch (SQLException e) {
+//			System.out.println("se tea jodido  eliminarCliente");
+//			e.printStackTrace();
+//			pst.execute();
+//		}
+//	}
+	public static Cliente modificarCliente(Cliente cliente) throws SQLException {
+		String sql ="UPDATE clientes SET dni=?,nombre=?,apellido=?,direccion=?,localidad=?";
 		PreparedStatement pst = con.prepareStatement(sql);
+
+					try {
+						pst.setString(1, cliente.getDni());
+						pst.setString(2, cliente.getNombre());
+						pst.setString(3, cliente.getApellido());
+						pst.setString(4, cliente.getDireccion());
+						pst.setString(5, cliente.getLocalidad());
 		
-		try {
-			pst.setString(1, Cliente.getDni());
-			pst.setString(2, Cliente.getNombre());
-			pst.setString(3, Cliente.getApellido());
-			pst.setString(4, Cliente.getDireccion());
-			pst.setString(3, Cliente.getLocalidad());
-
-			pst.execute();
-
-		} catch (SQLException e) {
-			System.out.println("se tea jodido  eliminarCliente");
-			e.printStackTrace();
-			pst.execute();
-		}
+					
+						pst.execute();
+		
+					} catch (SQLException e) {
+						System.out.println("Peto en modificarCliente");
+						e.printStackTrace();
+					}
+		
+				return cliente;
 	}
 
-	}
-
-	
+}
 
 

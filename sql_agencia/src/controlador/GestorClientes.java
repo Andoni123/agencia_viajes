@@ -24,15 +24,19 @@ public class GestorClientes extends  Conector {
 		Visor.mostrarClientes(clientes);
 		Conector.cerrar();
 	}
-	public static void eliminarCliente(Scanner scan) {
-		Conector.conectar();
-		ArrayList<Cliente> clientes = GestorBBDD.getClientes();
-		Visor.mostrarClientes(clientes);
+//	public static void eliminarCliente(Scanner scan) {
+//		Conector.conectar();
+//		ArrayList<Cliente> clientes = GestorBBDD.getClientes();
+//		Visor.mostrarClientes(clientes);
 
-		GestorBBDD.eliminarCliente(cliente);
+//		GestorBBDD.eliminarCliente(cliente);
+//		Conector.cerrar();
+//	}
+	public static void modificarCliente(Scanner scan) {
+		Conector.conectar();
+		
 		Conector.cerrar();
 	}
-	
 	
 
 
